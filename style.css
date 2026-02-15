@@ -199,10 +199,9 @@ a {
 }
 
 .timeline-logo img {
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  height: auto;
   max-width: 100%;
-  max-height: 100%;
   border-radius: 50%;
   object-fit: contain;
   border: 2px solid var(--text);
