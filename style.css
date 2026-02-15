@@ -163,22 +163,80 @@ a {
   }
 }
 
-.education-item {
+/* Timeline générale */
+.timeline {
+  position: relative;
+  margin: 40px 0;
+  padding-left: 50px;
+}
+
+/* Ligne verticale */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 25px;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--text);
+  opacity: 0.2;
+  border-radius: 2px;
+}
+
+/* Chaque item de la timeline */
+.timeline-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+/* Logo */
+.timeline-logo {
+  flex: 0 0 50px;
+  position: relative;
+  z-index: 1;
+}
+
+.timeline-logo img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--text);
   background: var(--card);
-  padding: 20px;
+}
+
+/* Cercle sur la ligne verticale */
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  left: 25px;
+  top: 12px;
+  width: 16px;
+  height: 16px;
+  background: var(--text);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+/* Contenu */
+.timeline-content {
+  background: var(--card);
+  padding: 15px 20px;
   border-radius: 10px;
-  margin-bottom: 20px;
+  margin-left: 20px;
   transition: transform 0.2s;
 }
 
-.education-item:hover {
-  transform: translateY(-3px);
-}
-
-.education-item h3 {
+.timeline-content h3 {
   margin: 0 0 5px 0;
 }
 
-.education-item p {
+.timeline-content p {
   margin: 3px 0;
+}
+
+.timeline-content:hover {
+  transform: translateY(-3px);
 }
