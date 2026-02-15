@@ -120,14 +120,14 @@ a {
 }
 
 /* Hamburger */
-.hamburger {
+.menu-burger {
   display: none;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
 }
 
-.hamburger span {
+.menu-burger span {
   width: 25px;
   height: 3px;
   background: var(--nav-text);
@@ -158,7 +158,7 @@ a {
     transform: translateX(0);
   }
 
-  .hamburger {
+  .menu-burger {
     display: flex;
   }
 }
