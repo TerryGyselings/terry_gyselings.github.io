@@ -1,0 +1,12 @@
+body {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: auto;
+  padding: 40px;
+}
+
+.project {
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 15px;
+}
