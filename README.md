@@ -1,2 +1,2 @@
-# terry_gyselings.github.io
+# terrygyselings.github.io
 Portfolio
