@@ -7,6 +7,13 @@ burger.addEventListener("click", () => {
   navMenu.classList.toggle("active");
 });
 
+// FERME LE MENU QUAND ON CLIQUE SUR UN LIEN
+document.querySelectorAll("#navMenu a").forEach(link => {
+  link.addEventListener("click", () => {
+    navMenu.classList.remove("active");
+  });
+});
+
 // DARK MODE
 
 const themeToggle = document.getElementById("themeToggle");
@@ -43,6 +50,17 @@ langToggle.addEventListener("click", () => {
   });
 });
 
+// SCROLL EN HAUT AU CLIC SUR LOGO
+
+const logo = document.querySelector(".logo");
+
+logo.addEventListener("click", () => {
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth" // animation fluide
+  });
+});
+
 // ANIMATION AU SCROLL
 
 const observer = new IntersectionObserver(entries => {
@@ -53,7 +71,7 @@ const observer = new IntersectionObserver(entries => {
   });
 });
 
-document.querySelectorAll("section, .project-card, .skill").forEach(el => {
+document.querySelectorAll("section, .project-card, .skill, .timeline-item").forEach(el => {
   el.classList.add("hidden");
   observer.observe(el);
 });

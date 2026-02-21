@@ -284,18 +284,31 @@ footer {
 
 @media (max-width:768px) {
   .nav-menu {
-    display: none;
     flex-direction: column;
     background: var(--bg);
     position: absolute;
     right: 0;
     top: 60px;
     padding: 20px;
+    
+    opacity: 0;
+    pointer-events: none; /* empêche les clics quand fermé */
+    transform: translateY(-20px);
+    transition: opacity 0.3s ease, transform 0.3s ease;
   }
 
   .nav-menu.active {
-    display: flex;
+    opacity: 1;
+    pointer-events: auto; /* activé quand ouvert */
+    transform: translateY(0);
   }
+
+  /* Effet "bounce" à la fermeture */
+.nav-menu.closing {
+  opacity: 0;
+  transform: translateY(-20px) scaleY(0.95); /* léger rétrécissement */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
 
   .burger {
     display: block;
@@ -362,4 +375,125 @@ footer {
 .visible {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* TIMELINE */
+.timeline {
+  position: relative;
+  max-width: 900px;
+  margin: 40px auto 0 auto;
+  padding-left: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 20px;
+  top: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary);
+  border-radius: 2px;
+}
+
+.timeline-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease;
+}
+
+.timeline-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Point sur la ligne */
+.timeline-point {
+  position: absolute;
+  left: -26px;
+  top: 50px;
+  width: 16px;
+  height: 16px;
+  background: var(--primary);
+  border-radius: 50%;
+  border: 2px solid var(--bg);
+  z-index: 2;
+}
+
+/* Logos ronds et plus grands */
+.timeline-logo img {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  border-radius: 50%;
+  border: 2px solid var(--primary);
+  background: #ffffff;
+}
+
+/* Content */
+.timeline-content h3 {
+  font-size: 1.2rem;
+  margin-bottom: 6px;
+  color: var(--primary);
+}
+
+.timeline-content p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin-bottom: 4px;
+}
+
+/* Divider */
+.timeline-divider {
+  text-align: center;
+  font-weight: 500;
+  color: var(--text-secondary);
+  margin: 20px 0;
+}
+
+/* RESPONSIVE MOBILE - moins de 768px */
+@media (max-width: 768px) {
+
+  .timeline {
+    padding-left: 0;
+    gap: 50px;
+  }
+
+  /* Ligne verticale et points cachés */
+  .timeline-line,
+  .timeline-point {
+    display: none;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: center; /* logo et contenu centrés */
+    gap: 15px;
+    text-align: center;
+    position: relative;
+  }
+
+  .timeline-logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .timeline-logo img {
+    max-width: 90%;
+    max-height: 90%;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.9rem;
+  }
 }
