@@ -43,6 +43,7 @@ body {
     color 0.3s ease;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  overflow-x: hidden;
 }
 
 .hidden {
