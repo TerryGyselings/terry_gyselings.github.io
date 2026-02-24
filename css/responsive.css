@@ -1,0 +1,84 @@
+@media (max-width: 768px) {
+  .nav-menu {
+    flex-direction: column;
+    background: var(--bg);
+    position: absolute;
+    right: 0;
+    top: 60px;
+    padding: 20px;
+
+    opacity: 0;
+    pointer-events: none; /* empêche les clics quand fermé */
+    transform: translateY(-20px);
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .nav-menu.active {
+    opacity: 1;
+    pointer-events: auto; /* activé quand ouvert */
+    transform: translateY(0);
+  }
+
+  /* Effet "bounce" à la fermeture */
+  .nav-menu.closing {
+    opacity: 0;
+    transform: translateY(-20px) scaleY(0.95); /* léger rétrécissement */
+    transition:
+      opacity 0.3s ease,
+      transform 0.3s ease;
+  }
+
+  .burger {
+    display: block;
+  }
+
+  .timeline {
+    padding-left: 0;
+    gap: 50px;
+  }
+
+  /* Ligne verticale et points cachés */
+  .timeline-line,
+  .timeline-point {
+    display: none;
+  }
+
+  .timeline-item {
+    flex-direction: column;
+    align-items: center; /* logo et contenu centrés */
+    gap: 15px;
+    text-align: center;
+    position: relative;
+  }
+
+  .timeline-logo {
+    width: 80px;
+    height: 80px;
+  }
+
+  .timeline-logo img {
+    max-width: 90%;
+    max-height: 90%;
+  }
+
+  .timeline-content h3 {
+    font-size: 1.1rem;
+  }
+
+  .timeline-content p {
+    font-size: 0.9rem;
+  }
+
+    .project-slide {
+    flex: 0 0 90%;
+    padding: 30px 15px;
+  }
+  .project-image {
+    height: 200px;
+  }
+  .carousel-btn {
+    font-size: 2.5rem;
+  }
+}
